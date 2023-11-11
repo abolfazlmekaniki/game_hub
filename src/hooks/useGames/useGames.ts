@@ -3,9 +3,17 @@ import api_client from "../../services/api_client";
 import { CanceledError } from "axios";
 
 
-interface Game{
+export interface platforms {
+    id:number,
+    name:string,
+    slug:string
+}
+
+export interface Game{
     id:number;
-    name:string
+    name:string;
+    background_image:string;
+    parent_platforms :{platform:platforms}[]
 }
 
 interface FetchGame{
