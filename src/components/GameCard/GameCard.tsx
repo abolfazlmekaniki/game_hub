@@ -14,7 +14,7 @@ const GameCard:React.FC<props> = ({games}):JSX.Element=>{
     
 // height={["259px", "178px", "166.27px","122.1px"]} width={["298.30px", "377.35px", "166.27px","122.1px"]}
 return(
-    <Card borderRadius={10} overflow="hidden">
+    <Card >
         <Image src={get_img_url(games.background_image)} height={["259px", "178px", "166.27px","122.1px"]} />
         <CardBody>
             <Heading fontSize='1xl' >{games.name}</Heading>
