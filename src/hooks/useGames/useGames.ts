@@ -13,7 +13,8 @@ export interface Game{
     id:number;
     name:string;
     background_image:string;
-    parent_platforms :{platform:platforms}[]
+    parent_platforms :{platform:platforms}[];
+    metacritic:number
 }
 
 interface FetchGame{
