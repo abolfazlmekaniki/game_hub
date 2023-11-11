@@ -2,6 +2,7 @@ import { Card,CardBody,HStack,Heading,Image, Text } from "@chakra-ui/react"
 import { Game } from "../../hooks/useGames/useGames"
 import PlatformIcon from "../PlatformIcon"
 import CriticScore from "../CriticScore"
+import get_img_url from "../../services/img-url"
 
 
 interface props{
@@ -14,7 +15,7 @@ const GameCard:React.FC<props> = ({games}):JSX.Element=>{
 // height={["259px", "178px", "166.27px","122.1px"]} width={["298.30px", "377.35px", "166.27px","122.1px"]}
 return(
     <Card borderRadius={10} overflow="hidden">
-        <Image src={games.background_image} height={["259px", "178px", "166.27px","122.1px"]} />
+        <Image src={get_img_url(games.background_image)} height={["259px", "178px", "166.27px","122.1px"]} />
         <CardBody>
             <Heading fontSize='1xl' >{games.name}</Heading>
             <HStack justify="space-between">
