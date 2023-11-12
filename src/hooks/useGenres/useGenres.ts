@@ -3,6 +3,7 @@ import useData from "../useData/useData";
 export interface Genre{
     id:number;
     name:string;
+    image_background:string;
 }
 
 

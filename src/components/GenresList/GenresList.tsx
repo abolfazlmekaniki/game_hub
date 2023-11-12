@@ -1,20 +1,19 @@
-import { useEffect, useState } from "react";
-import api_client from "../../services/api_client";
-import { CanceledError } from "axios";
-import useGenres, { Genre } from "../../hooks/useGenres/useGenres";
-import { list } from "@chakra-ui/react";
-import useData from "../../hooks/useData/useData";
-
+import { HStack, Image, List, ListItem, Text} from "@chakra-ui/react";
+import useGenres from "../../hooks/useGenres/useGenres";
 const GenreList = ()=>{
     
     const {data}= useGenres();
-    
-
-
+    console.log(data);
     return (
-        <ul>
-            {data.map(genre=><li>{genre.name}</li>)}
-        </ul>
+        <List>
+            {data.map(genre=>
+            <ListItem key={genre.id} paddingY='5px'>
+                <HStack>
+                    <Image src={genre.image_background} boxSize='32px' borderRadius={8}/>
+                    <Text fontSize='lg'>{genre.name}</Text>
+                </HStack>
+            </ListItem>)}
+        </List>
     )
 
 }
