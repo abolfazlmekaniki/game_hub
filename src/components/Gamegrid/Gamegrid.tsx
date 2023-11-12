@@ -6,7 +6,7 @@ import GmaeCardComponent from "../GameCardComponents";
 
 
 function GameGrid() {
-    const{games,error,isloading}=useGames();
+    const{data,error,isloading}=useGames();
     const skeleton = [1,2,3,4,5,6];
 
 return(
@@ -21,7 +21,7 @@ return(
         </GmaeCardComponent>
         )}
 
-        {games.map(game=>(
+        {data.map(game=>(
             <GmaeCardComponent>
                 <GameCard  games={game} key={game.id}/>
             </GmaeCardComponent>
