@@ -24,11 +24,10 @@ const useData =<T>(endpoint:string)=>{
 
     useEffect(()=>{
         setLoading(true);
-        const controller = new AbortController()
+        const controller = new AbortController();
         api_client.get<FetchData<T>>(endpoint,{signal:controller.signal})
         .then(res=>{
-            
-            setData(res.data.results)
+            setData(res.data.results);
             setLoading(false);
         })
         .catch(err=>{
