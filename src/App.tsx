@@ -5,11 +5,23 @@ import GenreList from './components/GenresList/GenresList'
 import { useState } from 'react'
 import { Genre } from './hooks/useGenres/useGenres'
 import PlatformsSelector from './components/PlatformsSelector/PlatformsSelector'
+import { platforms } from './hooks/useData/useData'
+
+
+
+export interface GameQuery {
+  genre : Genre | null;
+  platform : platforms | null
+}
+
 function App() {
 
-  const [selectedgenre,setSelectedGenre] = useState<Genre|null>(null);
+  const [gameQuery,setGameQuery] = useState<GameQuery>({} as GameQuery);
   
-  console.log(selectedgenre);
+
+  function platform(platforms: platforms | null) {
+    throw new Error('Function not implemented.')
+  }
 
 return(
 
@@ -27,12 +39,12 @@ return(
     </GridItem>
     <Show above='lg'>
       <GridItem area="aside" paddingX={5}>
-        <GenreList selectedgenre={selectedgenre} onSelectedGenre={(genre)=>setSelectedGenre(genre)}/>
+        <GenreList selectedgenre={gameQuery.genre} onSelectedGenre={(genre)=>setGameQuery({...gameQuery,genre})}/>
       </GridItem>
     </Show>
     <GridItem area="main">
-      <PlatformsSelector/>
-      <GameGrid selectedgenre={selectedgenre}/>
+      <PlatformsSelector onselectedplatforms={(platform)=>setGameQuery({...gameQuery,platform})}/>
+      <GameGrid gameQuery={gameQuery}/>
     </GridItem>
   </Grid>
 
