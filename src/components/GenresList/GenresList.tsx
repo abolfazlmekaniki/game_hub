@@ -4,10 +4,11 @@ import React from "react";
 
 
 interface props{
-    onSelectedGenre:(genre:Genre)=>void
+    onSelectedGenre:(genre:Genre)=>void;
+    selectedgenre:Genre|null
 }
 
-const GenreList:React.FC<props> = ({onSelectedGenre})=>{
+const GenreList:React.FC<props> = ({selectedgenre,onSelectedGenre})=>{
     
     const {data,isloading,error}= useGenres();
     
@@ -21,7 +22,7 @@ const GenreList:React.FC<props> = ({onSelectedGenre})=>{
             <ListItem key={genre.id} paddingY='5px'>
                 <HStack>
                     <Image src={genre.image_background} boxSize='32px' borderRadius={8}/>
-                    <Button variant='link' onClick={()=>onSelectedGenre(genre)} fontSize='lg'>{genre.name}</Button>
+                    <Button fontWeight={selectedgenre?.id===genre.id?'bold':'normal'} variant='link' onClick={()=>onSelectedGenre(genre)} fontSize='lg'>{genre.name}</Button>
                 </HStack>
             </ListItem>)}
         </List>

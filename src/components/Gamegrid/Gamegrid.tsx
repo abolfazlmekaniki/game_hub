@@ -6,7 +6,7 @@ import GmaeCardComponent from "../GameCardComponents";
 import { Genre } from "../../hooks/useGenres/useGenres";
 
 interface props {
-    selectedgenre : Genre | null
+    selectedgenre : Genre | null;
 }
 
 function GameGrid({selectedgenre}:props) {
