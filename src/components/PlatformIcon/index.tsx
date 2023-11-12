@@ -26,7 +26,7 @@ const  PlatformIcon:React.FC<props> = ({platforms}):JSX.Element=>{
 
 return(
     <HStack>
-    {platforms.map((platform)=><Icon as={iconmap[platform.slug]} color='gray.500' marginY={1.5}/>)}
+    {platforms.map((platform)=><Icon key={platform.id} as={iconmap[platform.slug]} color='gray.500' marginY={1.5}/>)}
     </HStack> 
 )
   
