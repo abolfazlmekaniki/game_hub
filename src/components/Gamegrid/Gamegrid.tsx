@@ -19,7 +19,7 @@ return(
     {error && <Text>{error}</Text>}
 
     {!error && 
-     <SimpleGrid columns={{sm:1 , md:2 , lg:3 , xl:5}} spacing={10} padding={20}>
+     <SimpleGrid columns={{sm:1 , md:2 , lg:3 , xl:4}} spacing={6} padding={20}>
 
         {isloading && skeleton.map(i=> <GmaeCardComponent key={i}>
             <GameCardSkeleton />
