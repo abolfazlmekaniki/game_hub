@@ -14,11 +14,9 @@ function GameGrid({gameQuery}:props) {
     const{data,error,isloading}=useGames(gameQuery);
     const skeleton = [1,2,3,4,5,6];
 
-return(
-    <>
-    {error && <Text>{error}</Text>}
+    if(error) return <Text>{error}</Text>
 
-    {!error && 
+return(
      <SimpleGrid columns={{sm:1 , md:2 , lg:3 , xl:4}} spacing={6} padding={20}>
 
         {isloading && skeleton.map(i=> <GmaeCardComponent key={i}>
@@ -31,8 +29,7 @@ return(
                 <GameCard  games={game} />
             </GmaeCardComponent>
         ))}
-    </SimpleGrid>}
-    </>
+    </SimpleGrid>
 )
   
 }
